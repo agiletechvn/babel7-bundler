@@ -1,0 +1,27 @@
+{
+  "name": "reactnative_multibundler",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "platform-ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file platform.js --bundle-output ./ios/platform.ios.bundle --assets-dest ./ios/ --config platform59.config.js",
+    "app1-ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --bundle-output ./ios/index.ios.bundle --assets-dest ./ios/ --config app59.config.js",
+    "app2-ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index2.js --bundle-output ./ios/index2.ios.bundle --assets-dest ./ios/ --config app59.config.js",
+    "app3-ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index3.js --bundle-output ./ios/index3.ios.bundle --assets-dest ./ios/ --config app59.config.js",
+    "platform-android": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file platform.js --bundle-output ./android/app/src/main/assets/platform.android.bundle --assets-dest ./android/app/src/main/res/ --config platform59.config.js",
+    "app1-android": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res/ --config app59.config.js",
+    "app2-android": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index2.js --bundle-output ./android/app/src/main/assets/index2.android.bundle --assets-dest ./android/app/src/main/res/ --config app59.config.js",
+    "app3-android": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index3.js --bundle-output ./android/app/src/main/assets/index3.android.bundle --assets-dest ./android/app/src/main/res/ --config app59.config.js",
+    "postinstall": "rm -f node_modules/react-native/scripts/launchPackager.command"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-native": "0.59.8",
+    "react-navigation": "2.17.0"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "@babel/core": "^7.4.5",
+    "metro-react-native-babel-preset": "^0.54.1"
+  }
+}
