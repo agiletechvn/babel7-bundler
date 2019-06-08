@@ -3,7 +3,14 @@ const {
   createPostProcessModulesFilter
 } = require('./configUtils');
 
-const map = require('./ios/platform.ios.bundle.json');
+let manifestFile = process.env.MANIFEST_OUTPUT;
+
+if (!manifestFile) {
+  console.log('Must provide MANIFEST_OUTPUT env');
+  process.exit(1);
+}
+
+const map = require(manifestFile);
 
 module.exports = {
   serializer: {

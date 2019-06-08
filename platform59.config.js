@@ -9,12 +9,16 @@ module.exports = {
 };
 
 process.on('exit', code => {
-  for (let i = 0; i < process.argv.length; ++i) {
-    if (process.argv[i] === '--bundle-output') {
-      const manifestFile = process.argv[i + 1] + '.json';
-      console.log(`Write map to : ${manifestFile}`);
-      fs.writeFileSync(manifestFile, JSON.stringify(map, null, 2));
-      break;
+  let manifestFile = process.env.MANIFEST_OUTPUT;
+  if (!manifestFile) {
+    for (let i = 0; i < process.argv.length; ++i) {
+      if (process.argv[i] === '--bundle-output') {
+        manifestFile = process.argv[i + 1] + '.json';
+        break;
+      }
     }
   }
+
+  console.log(`Write map to : ${manifestFile}`);
+  fs.writeFileSync(manifestFile, JSON.stringify(map, null, 2));
 });
